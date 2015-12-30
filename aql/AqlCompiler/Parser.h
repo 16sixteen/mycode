@@ -169,9 +169,10 @@ public:
     }
 
     Stmt *regex_spec() {    // regex_spec -> regex REG on column name_spec
-        Regex_Spec *rs = new Regex_Spec();
         match(Tag::REGEX);
+		Regex_Spec *rs = new Regex_Spec();
         Token *t = look;
+		match(Tag::REG);
         match(Tag::ON);
         Stmt *s1 = column();
         Stmt *s2 = name_spec();

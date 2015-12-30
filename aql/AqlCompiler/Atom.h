@@ -24,6 +24,27 @@ public:
 		else{//single regex
 			Word* r = static_cast<Word*>(reg);
 			vector<Record_Cell> temp;
+			string update_reg;
+			for (int i = 0; i < r->lexeme.size(); i++){
+				if (i == 0 && r->lexeme[i] == '('){
+					update_reg.push_back('(');
+					update_reg.push_back('?');
+					update_reg.push_back(':');
+				}
+				else if (i>0 && r->lexeme[i] == '('){
+					if (r->lexeme[i - 1] != '\\'){
+						update_reg.push_back('(');
+						update_reg.push_back('?');
+						update_reg.push_back(':');
+					}
+					else{
+						update_reg.push_back(r->lexeme[i]);
+					}
+				}
+				else{
+					update_reg.push_back(r->lexeme[i]);
+				}
+			}
 			Record_Cell rc(r->lexeme, 0, 0);
 			temp.push_back(rc);
 			pattern_spec.push_back(temp);

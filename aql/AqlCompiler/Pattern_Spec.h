@@ -25,14 +25,15 @@ public:
 				for (int j = result[i][0]; j < result[i][1]; j++){
 					temp.push_back(*(text + j));
 				}*/
-				for (int j = 0; j < result[0].size(); j += 2){
+				int group_count = 0;
+				for (int j = 0; j < result[0].size(); j += 2,group_count++){
 					//printf("(%d,%d)", result[i][j], result[i][j + 1]);
 					string temp;
 					for (int k = result[i][j]; k < result[i][j + 1]; k++){
 						temp.push_back(*(text + k));
 					}
 					Record_Cell r(temp, result[i][j], result[i][j + 1]);
-					__target_table[__groups[j]].push_back(r);
+					__target_table[__groups[group_count]].push_back(r);
 				}
 				/*cout << temp;
 				printf(":");

@@ -19,7 +19,8 @@ extern Name_Table_Relation ntr;
 extern Table __target_table;
 
 extern map<int, string> __groups;
-extern string NoNeed;
+extern const string NoNeed;
 extern string __alias;
 extern vector<vector<Record_Cell> > pattern_spec;
 extern char * text;
+void globalInit();

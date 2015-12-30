@@ -11,4 +11,13 @@ vector<vector<Record_Cell> > pattern_spec;
 char * text;
 
 map<int, string> __groups;
-string NoNeed;
+const string NoNeed = "";
+
+
+void globalInit() {
+	__from_list.clear();
+	__select_list.clear();
+	__target_table.clear();
+	__groups.clear();
+	__alias = "";
+}
