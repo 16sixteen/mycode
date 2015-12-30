@@ -49,20 +49,26 @@ public:
     void program() {
         Stmt *s = aql_stmts();
         // #.对语法树进行处理
+        s->gen();   // Seq-gen();
     }
 
     Stmt * aql_stmts() {    // aql_stmts ->aql_stmt aql_stmts | e
         if (look->tag == Tag::END) return Stmt::Null;
-        else return new Seq(aql_stmt(), aql_stmts());
+        else {
+            Stmt *s1 = aql_stmt();
+            Stmt *s2 = aql_stmts();
+            return new Seq(s1, s2);
+        }
     }
 
     Stmt * aql_stmt() { // aql_stmt -> create_stmt ; | output_stmt ;
+        Stmt * s;
         switch (look->tag) {
         case Tag::CREATE:
-        Stmt *s = create_stmt(); match(';');
+        s = create_stmt(); match(';');
         return s;
         case Tag::OUTPUT:
-        Stmt *s = output_stmt(); match(';');
+        s = output_stmt(); match(';');
         return s;
         default:
         // #.输出错误信息终止程序
@@ -81,6 +87,7 @@ public:
     }
 
     Stmt *view_stmt() { // view_stmt -> select_stmt | extract_stmt
+        // Word * word = (Word *)look;
         if (look->tag == Tag::SELECT) return select_stmt();
         else return extract_stmt();
     }

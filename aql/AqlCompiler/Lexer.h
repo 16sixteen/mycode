@@ -1,14 +1,21 @@
-#pragma once
-
+#include<iostream>
+#include<vector>
+#include<string>
 #include "Token.h"
+#include<fstream>
+#include "Num.h"
+#include "Word.h"
+using namespace std;
 
-class Lexer
-{
+class Lexer {
 public:
-    static int line;
-    Token * scan() {
-        //return Token.
-    }
+	Lexer(string file_path);
+	Token* scan();
+private:
+	int row = 0;
+	int col = -1;
+	ifstream fin;
+	int is_regex = 0;
 };
 
-int Lexer::line = 1;
+int choose_type(string temp);

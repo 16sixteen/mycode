@@ -1,0 +1,5 @@
+create view ACTOR as
+	select A.name as NAME
+	from Actor A;
+
+output view ACTOR;

@@ -129,6 +129,7 @@
     <ClInclude Include="Name_Spec.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="Num.h" />
+    <ClInclude Include="outputTable.h" />
     <ClInclude Include="Output_Stmt.h" />
     <ClInclude Include="Parser.h" />
     <ClInclude Include="Pattern_Group.h" />
@@ -136,6 +137,7 @@
     <ClInclude Include="Pattern_Pkg_Join.h" />
     <ClInclude Include="Pattern_Spec.h" />
     <ClInclude Include="Record_Cell.h" />
+    <ClInclude Include="regex.h" />
     <ClInclude Include="Regex_Spec.h" />
     <ClInclude Include="Select_Item.h" />
     <ClInclude Include="Select_Item_Join.h" />
@@ -158,9 +160,11 @@
     <ClCompile Include="From_Item.cpp" />
     <ClCompile Include="From_Item_Join.cpp" />
     <ClCompile Include="Lexer.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="Name_Spec.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="Num.cpp" />
+    <ClCompile Include="outputTable.cpp" />
     <ClCompile Include="Output_Stmt.cpp" />
     <ClCompile Include="Parser.cpp" />
     <ClCompile Include="Pattern_Group.cpp" />
@@ -168,6 +172,7 @@
     <ClCompile Include="Pattern_Pkg_Join.cpp" />
     <ClCompile Include="Pattern_Spec.cpp" />
     <ClCompile Include="Record_Cell.cpp" />
+    <ClCompile Include="regex.cpp" />
     <ClCompile Include="Regex_Spec.cpp" />
     <ClCompile Include="Select_Item.cpp" />
     <ClCompile Include="Select_Item_Join.cpp" />
@@ -178,6 +183,7 @@
     <ClCompile Include="Stmt.cpp" />
     <ClCompile Include="Tag.cpp" />
     <ClCompile Include="Token.cpp" />
+    <ClCompile Include="TypeDefine.cpp" />
     <ClCompile Include="Word.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

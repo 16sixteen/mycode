@@ -18,9 +18,9 @@ public:
 
     void gen() {
         Id * id = static_cast<Id *>(t);
-        //string &table_name = 
-        Table table;    // 定义一个表格
-        v_stmt->gen();
+        string &table_name = id->lexeme;
+        v_stmt->gen();  // Select_Stmt->gen() | Extract_Stmt->gen();
+        ntr.insert(make_pair(table_name, __target_table));
     }
 };
 
