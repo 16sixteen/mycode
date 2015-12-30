@@ -5,6 +5,10 @@ create view ACTOR as
 output view ACTOR;
 
 create view Actor as
-    extract pattern (<ACTOR.NAME>{1,2})
+    extract pattern (<ACTOR.NAME>{1,2}) <Token>{0,1} (<ACTOR.NAME>)
         return group 0 as ANAME
+        and group 1 as BNAME
+        and group 2 as CNAME
     from ACTOR A;
+
+output view Actor;

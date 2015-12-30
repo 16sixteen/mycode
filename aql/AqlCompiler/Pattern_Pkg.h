@@ -52,7 +52,7 @@ public:
 		else{//multiple token
 			Num* t1 = static_cast<Num *>(num1);
 			Num* t2 = static_cast<Num *>(num2);
-			string reg = "(?:[a-zA-Z0-9]+||[^\s])";
+			string reg = "(?:[a-zA-Z0-9]+|[^\s])";
 			if (t1->value == 0){//{0,x},so that reg*
 				reg += "?";
 				string temp = reg;

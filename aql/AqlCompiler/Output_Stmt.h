@@ -2,6 +2,7 @@
 #include "Stmt.h"
 #include "outputTable.h"
 #include "TypeDefine.h"
+#include "Alias.h"
 // #include "outputTable.h"
 
 class Output_Stmt :
@@ -15,7 +16,7 @@ public:
 
     void gen() {
         Id *name = static_cast<Id *>(id);
-        string alias_name = (__alias == "" ? name->lexeme : __alias);
+		string alias_name = (als == Alias::Null ? name->lexeme : (als->gen(), __alias));
         outputTable(alias_name, ntr[name->lexeme]);
     }
 };

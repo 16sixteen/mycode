@@ -1,5 +1,6 @@
 #pragma once
 #include "Stmt.h"
+#include "Alias.h"
 class Select_Item : public Stmt
 {
 public:
@@ -13,7 +14,7 @@ public:
         // ø…”≈ªØ
         Id *id = static_cast<Id *>(id1); string &id1_name = id->lexeme;
         id = static_cast<Id *>(id2); string &id2_name = id->lexeme;
-        a_stmt->gen(); string &alias_name = (__alias == "" ? id2_name : __alias);
+		string &alias_name = (a_stmt == Alias::Null ? id2_name : (a_stmt->gen(), __alias));
         vector<string> item;
         item.push_back(id1_name); item.push_back(id2_name); item.push_back(alias_name);
         __select_list.push_back(item);

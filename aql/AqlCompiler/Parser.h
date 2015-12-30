@@ -242,7 +242,7 @@ public:
             s3 = pattern_group();
         } else {
             s1 = atom();
-			Word* w = (Word*)look;
+			//Word* w = (Word*)look;
             if (look->tag == '{') {
                 s2 = s1; s1 = Stmt::Null;
                 move(); t1 = look; match(Tag::NUM);
@@ -270,6 +270,9 @@ public:
             }
             match('>');
         }
+		if (s == Stmt::Null){
+			return Stmt::Null;
+		}
         a->init(s, t);
         return a;
     }

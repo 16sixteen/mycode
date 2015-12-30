@@ -1,6 +1,8 @@
 #pragma once
 #include "Stmt.h"
 #include "regex.h"
+#include<iostream>
+using namespace std;
 class Pattern_Spec :
     public Stmt
 {
@@ -19,14 +21,22 @@ public:
 			vector<vector<int> > result;
 			result = findall(regex, text);
 			for (int i = 0; i < result.size(); i++){
+				/*string temp;
 				for (int j = result[i][0]; j < result[i][1]; j++){
-					printf("%c", *(text + j));
-				}
-				printf(":");
+					temp.push_back(*(text + j));
+				}*/
 				for (int j = 0; j < result[0].size(); j += 2){
-					printf("(%d,%d)", result[i][j], result[i][j + 1]);
+					//printf("(%d,%d)", result[i][j], result[i][j + 1]);
+					string temp;
+					for (int k = result[i][j]; k < result[i][j + 1]; k++){
+						temp.push_back(*(text + k));
+					}
+					Record_Cell r(temp, result[i][j], result[i][j + 1]);
+					__target_table[__groups[j]].push_back(r);
 				}
-				printf("\n");
+				/*cout << temp;
+				printf(":");
+				printf("\n");*/
 			}
 			return;
 		}
