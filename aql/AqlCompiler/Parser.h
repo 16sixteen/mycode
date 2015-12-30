@@ -87,7 +87,7 @@ public:
     }
 
     Stmt *view_stmt() { // view_stmt -> select_stmt | extract_stmt
-        // Word * word = (Word *)look;
+        //Word * word = (Word *)look;
         if (look->tag == Tag::SELECT) return select_stmt();
         else return extract_stmt();
     }
@@ -242,6 +242,7 @@ public:
             s3 = pattern_group();
         } else {
             s1 = atom();
+			Word* w = (Word*)look;
             if (look->tag == '{') {
                 s2 = s1; s1 = Stmt::Null;
                 move(); t1 = look; match(Tag::NUM);

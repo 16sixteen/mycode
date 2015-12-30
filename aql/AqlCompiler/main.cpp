@@ -1,4 +1,5 @@
 #include "Parser.h"
+#include "regex.h"
 
 int main() {
     Table table;
@@ -9,7 +10,11 @@ int main() {
     cols.push_back(Record_Cell("Elena", 6 ,7));
     table["name"] = cols;
     ntr["Actor"] = table;
-    
+	text = "JaneJaneJane is Stephan and JaneJane is Jane.";
+    char* c = "(Jane){1,2}" ;
+	vector<vector<int> > result;
+	result = findall(c, text);
+
     string aql_name = "test.aql";
     Lexer *lexer = new Lexer(aql_name);
     Parser parser(lexer);

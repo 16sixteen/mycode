@@ -1,5 +1,10 @@
 create view ACTOR as
 	select A.name as NAME
 	from Actor A;
-
+	
 output view ACTOR;
+
+create view Actor as
+    extract pattern (<ACTOR.NAME>{1,2})
+        return group 0 as ANAME
+    from ACTOR A;

@@ -5,8 +5,10 @@ vector< vector<string> > __select_list;
 pair<string, string> __column;
 Name_Table_Relation ntr;
 Table __target_table;
-map<int, string> __groups;
 
 string __alias;
+vector<vector<Record_Cell> > pattern_spec;
+char * text;
 
-string NoNeed = "";
+map<int, string> __groups;
+string NoNeed;
